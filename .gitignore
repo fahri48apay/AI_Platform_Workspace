@@ -1,0 +1,8 @@
+#Mengabaikan folder virtual environment dan cache Python
+.venv/
+__pycache__/
+
+# Mengabaikan folder data, models, dan file .env (akan kita kelola ini nanti)
+data/
+models/
+.env/
