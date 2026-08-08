@@ -3,9 +3,13 @@
 __pycache__/
 
 # Mengabaikan folder data, models, dan file .env (akan kita kelola ini nanti)
-data/
-models/
+#data/
+#models/
 .env/
 
+# Mengaaikan file mentah yang tidak perlu di unggah
+data/raw/
+models/sentence_transformers/
 # Mengabaikan Latihan Praktik txt
 *txt
+*log
