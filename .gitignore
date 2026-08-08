@@ -6,3 +6,6 @@ __pycache__/
 data/
 models/
 .env/
+
+# Mengabaikan Latihan Praktik txt
+*txt
