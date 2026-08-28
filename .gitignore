@@ -13,3 +13,6 @@ models/sentence_transformers/
 # Mengabaikan Latihan Praktik txt
 *txt
 *log
+# Model AI besar (unduh terpisah dari Hugging Face)
+*.gguf
+*.safetensors
