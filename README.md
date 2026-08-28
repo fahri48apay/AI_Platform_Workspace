@@ -82,7 +82,7 @@ AI_Platform_Workspace/
 │   └── processed/             # Output pipeline: *_knowledge.parquet
 └── models/
     ├── Qwen-0.5B-Chat/        # Model asli (safetensors) untuk PyTorch
-    ├── Qwen-0.5B-GGUF/        # Model kuantisasi q4_k_m untuk llama-cpp
+    ├── Qwen-0.5B-GGUF/        # Model kuantisasi q4_k_m (unduh terpisah — lihat Quick Start)
     └── sentence_transformers/ # Cache embedding (di-ignore git)
 ```
 
@@ -110,14 +110,20 @@ python 05_generate_embeddings.py
 python 06_master_pipeline.py    # bangun database vektor final
 python 07_vector_search.py      # uji pencarian kosinus
 
-# 4) Atau langsung jalankan seluruh platform (auto-heal DB + API)
+# 4) Sekali saja: unduh model kuantisasi GGUF ke models/
+huggingface-cli download Qwen/Qwen1.5-0.5B-Chat-GGUF qwen1_5-0_5b-chat-q4_k_m.gguf \
+    --local-dir models/Qwen-0.5B-GGUF
+
+# 5) Atau langsung jalankan seluruh platform (auto-heal DB + API)
 python start_platform.py
 # → buka http://127.0.0.1:8000/docs
 ```
 
-> **Catatan model:** `models/Qwen-0.5B-GGUF/qwen1_5-0_5b-chat-q4_k_m.gguf` dan
-> `data/processed/*.parquet` sudah disertakan di repo melalui **Git LFS** — pastikan
-> `git lfs install` sudah aktif saat clone agar file besar ikut terunduh.
+> **Catatan model:** `data/processed/*.parquet` sudah disertakan di repo melalui
+> **Git LFS** (pastikan `git lfs install` aktif saat clone). Model kuantisasi
+> `qwen1_5-0_5b-chat-q4_k_m.gguf` **tidak lagi dibundel** — unduh dari
+> Hugging Face dan simpan ke `models/Qwen-0.5B-GGUF/` sebelum menjalankan
+> `start_platform.py`.
 
 ---
 
